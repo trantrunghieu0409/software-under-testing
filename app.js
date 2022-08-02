@@ -21,5 +21,6 @@ routesMdware(app);
 
 const port = 3306;
 console.log("Local host listens on " + 5000);
+console.log('Testing')
 
 app.listen(process.env.PORT || 5000);
