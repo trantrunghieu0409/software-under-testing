@@ -92,7 +92,7 @@ describe('Our application', function() {
         req.cookies = Cookies;
         req.set('Accept','application/json')
         .end((err, res) => {
-            expect(res.body).to.equal(true);
+            expect(res.body).to.equal(false);
             done();
         })
     }
@@ -109,7 +109,7 @@ describe('Our application', function() {
     });
 
     it('should see in watchlist', checkWatchlistTrue);
-
+    
     it('should delete in watchlist', function(done) {
         var req = request(app).put('/watchlist/del');
         req.cookies = Cookies;
@@ -122,7 +122,8 @@ describe('Our application', function() {
     it('should not see in watchlist', checkWatchlistFalse);
     
     after(() => {
-        exit();
+        server.close();
+        
     })
 
 });
